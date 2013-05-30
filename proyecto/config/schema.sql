@@ -38,14 +38,14 @@ CREATE TABLE estates_owners(
 
 DROP TABLE IF EXISTS buildings;
 CREATE TABLE buildings(
-  id  int(11) NOT NULL  auto_increment PRIMARY KEY,
-  type VARCHAR(15) NOT NULL,
-  city VARCHAR(40) NOT NULL,
-  neighborhood VARCHAR (40) NOT NULL,
-  street VARCHAR(40) NOT NULL,
-  price float(50),
-  description VARCHAR (200),
-  sale VARCHAR (3),
-  rental VARCHAR(3),
-  owner_id int(11)
+id int(11) NOT NULL auto_increment PRIMARY KEY,
+type VARCHAR(15),
+city VARCHAR(40),
+neighborhood VARCHAR (40),
+street VARCHAR(40),
+price float(50),
+description VARCHAR (200),
+sale VARCHAR (3),
+rental VARCHAR(3),
+owner_id int(11)
 );
