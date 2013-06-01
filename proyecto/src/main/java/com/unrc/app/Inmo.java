@@ -16,7 +16,7 @@ import spark.*;
 public class Inmo {
     public static void main( String[] args )
     {
-<<<<<<< HEAD
+
 
         get(new Route("/hello") {
             @Override
@@ -56,7 +56,7 @@ public class Inmo {
 //        e.set("first_name", "Bruno");
 //        e.set("last_name", "Isoardi");
 //        e.saveIt();
-=======
+
         Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
         
         Building building = Building.createIt("type", "house", "city", "Rio Cuarto", "neighborhood", "Banda Norte", "street", "Marcelo T. Alvear 241", "rental", "yes", "sale", "yes");
@@ -83,7 +83,7 @@ public class Inmo {
         e.set("first_name", "Bruno");
         e.set("last_name", "Isoardi");
         e.saveIt();
->>>>>>> bb5ef86f6dc1c7c82aadd99c43a3db15ad5c7120
+
         
         System.out.println( "Hello World!" );
  
