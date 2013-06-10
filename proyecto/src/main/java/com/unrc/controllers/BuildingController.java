@@ -24,5 +24,19 @@ public class BuildingController {
         }
         
     }
+    
+    public static void modify (int id, String type, String city, String neighborhood, String street, String price, String description, String sale, String rental, String owner_id) {
+        
+        Building e = Building.findById(id);
+        if (e != null) {
+            e.set("type", type, "city", city,"neighborhood", neighborhood, "street", street, "price", price, "description", description, "sale", sale, "rental", rental, "owner_id", owner_id).saveIt();
+            System.out.println("Building "+id+" modificado");
+        }
+        else {
+            System.out.println("Building "+id+" no encontrado");
+        }
+    }
+      
+    
 }
 

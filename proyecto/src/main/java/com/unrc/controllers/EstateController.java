@@ -25,4 +25,16 @@ public class EstateController {
         }
         
     }
+    
+     public static void modify (int id, String name, String city, String neighborhood, String street, String phone, String mail, String web_site) {
+       
+        Estate e = Estate.findById(id);
+        if (e != null) {
+            e.set("name", name, "city", city, "neighborhood", neighborhood, "street", street, "phone", phone, "mail", mail, "web_site", web_site).saveIt();
+            System.out.println("Estate "+id+" modificado");
+        }
+        else {
+            System.out.println("Estate "+id+" no encontrado");
+        }
+    }
 }

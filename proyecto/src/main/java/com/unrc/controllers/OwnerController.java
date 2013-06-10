@@ -1,9 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.unrc.controllers;
 
+import com.unrc.app.models.Building;
 import com.unrc.app.models.Owner;
 
 
@@ -28,6 +25,19 @@ public class OwnerController {
         }
         
     }
+    
+     public static void modify (int id, String first_name, String last_name, String city, String neighborhood, String street, String email) {
+       
+        Owner e = Owner.findById(id);
+        if (e != null) {
+            e.set("first_name", first_name, "last_name", last_name, "city", city, "neighborhood", neighborhood, "street", street, "email", email);     
+            System.out.println("Owner "+id+" modificado");
+        }
+        else {
+            System.out.println("Owner "+id+" no encontrado");
+        }
+    }
+     
 }
 
 
