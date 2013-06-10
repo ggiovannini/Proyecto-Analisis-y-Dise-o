@@ -8,13 +8,24 @@ import java.util.List;
 
 public class Search {
     
-    public void searchBuilding (String city) {
+    public void searchBuilding (String city, String type) {
         List<Building> lista;
-        if (city != null) {
-            lista = Building.where("city = ?", city);
+        
+        if ((city != null) && (type != null)) {
+            lista = Building.where("city = ? AND type = ?", city, type);
         }
         else {
-            lista = Building.where("");
+            if (city != null) {
+                lista = Building.where("city = ?", city);
+            }
+            else {
+                if (type != null) {
+                    lista = Building.where("type = ?", type);
+                }
+                else {
+                    lista = Building.where("");
+                }
+            }            
         }
         Building a;
         if (lista.size() > 0) {
@@ -29,7 +40,7 @@ public class Search {
                 System.out.println("--------------------------");
                 a =  lista.get(i);
                 Integer id = (Integer) a.get("id");
-                String type = (String) a.get("type");
+                String ty = (String) a.get("type");
                 String cit = (String) a.get("city");
                 String neig = (String) a.get("neighborhood");
                 String street = (String) a.get("street");
@@ -38,7 +49,7 @@ public class Search {
                 String sale = (String) a.get("sale");
                 String rental = (String) a.get("rental");                
                 System.out.println ("Id: "+id);
-                System.out.println ("Tipe: "+type);
+                System.out.println ("Tipe: "+ty);
                 System.out.println ("City: "+cit);
                 System.out.println ("Neighborhood: "+neig);
                 System.out.println ("Street: "+street);
@@ -97,7 +108,48 @@ public class Search {
         else {
             System.out.println ("No hay inmuebles disponibles en "+city);
         }
-    }   
+    }  
+    
+    public void searchOwner (String city) {
+        List<Owner> lista;
+        if (city != null) {
+            lista = Owner.where("city = ?", city);
+        }
+        else {
+            lista = Owner.where("");
+        }
+        Owner a;
+        if (lista.size() > 0) {
+            if (city != null) {
+                System.out.println("DUeños de " + city + ":");
+            }
+            else {
+                System.out.println ("Dueños:" );
+            }
+            int i = 0;
+            while (i < lista.size()) {
+                System.out.println("--------------------------");
+                a =  lista.get(i);
+                Integer id = (Integer) a.get("id");
+                String fst = (String) a.get("first_name");
+                String last = (String) a.get("last_name");
+                String cit = (String) a.get("city");
+                String neig = (String) a.get("neighborhood");
+                String street = (String) a.get("street");
+                String email = (String) a.get("email");
+                System.out.println ("Id: "+id);
+                System.out.println ("First name: "+fst);
+                System.out.println ("Last name: "+last);
+                System.out.println ("Neighborhood: "+neig);
+                System.out.println ("Street: "+street);
+                System.out.println ("Email: "+email);
+                i ++;
+            }
+        }
+        else {
+            System.out.println ("No hay inmuebles disponibles en "+city);
+        }
+    }
     
     
 }

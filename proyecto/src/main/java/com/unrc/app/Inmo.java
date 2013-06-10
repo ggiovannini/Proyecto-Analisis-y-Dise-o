@@ -68,7 +68,7 @@ public class Inmo {
         //a.register ("tipo", "moldes", "neig", "calle", null, "", "yes", "yes", "2"); 
        //a.modify (1, "tipo2", "moldess", "neig", "argerich", "", "", "yes", "yes", "2");
         Search a = new Search ();
-        a.searchBuilding("moldes");
+        a.searchBuilding("Rio Cuarto", "house" );
         
         
         //Estate estate = Estate.createIt("name", "Estate1", "web_site", "www.estate1.com");
