@@ -6,6 +6,7 @@ import com.unrc.app.models.Owner;
 import com.unrc.app.models.User;
 import com.unrc.controllers.EstateController;
 import com.unrc.controllers.BuildingController;
+import java.util.List;
 
 import org.javalite.activejdbc.Base;
 import org.slf4j.Logger;
@@ -57,16 +58,17 @@ public class Inmo {
 //        e.set("first_name", "Bruno");
 //        e.set("last_name", "Isoardi");
 //        e.saveIt();
-
+System.out.println ("Id: "+id);
         Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
         
        // Building building = Building.createIt("type", "house", "city", "Rio Cuarto", "neighborhood", "Banda Norte", "street", "Marcelo T. Alvear 241", "rental", "yes", "sale", "yes");
         //Building building2 = Building.createIt("type", "farm", "city", "Rio Cuarto", "neighborhood", "Barrio Bimaco", "street", "Castelli 801", "rental", "no", "sale", "yes");
         //Building building3 = Building.createIt("type", "department", "city", "La Carlota", "neighborhood", "Centro", "street", "San Martin 76", "rental", "yes", "sale", "no");
-        BuildingController a = new BuildingController ();
-        a.register ("tipo", "moldes", "neig", "calle", null, "", "yes", "yes", "2"); 
-       a.modify (1, "tipo2", "moldess", "neig", "argerich", "", "", "yes", "yes", "2");
-        
+        //BuildingController a = new BuildingController ();
+        //a.register ("tipo", "moldes", "neig", "calle", null, "", "yes", "yes", "2"); 
+       //a.modify (1, "tipo2", "moldess", "neig", "argerich", "", "", "yes", "yes", "2");
+        Search a = new Search ();
+        a.searchBuilding("moldes");
         
         
         //Estate estate = Estate.createIt("name", "Estate1", "web_site", "www.estate1.com");
