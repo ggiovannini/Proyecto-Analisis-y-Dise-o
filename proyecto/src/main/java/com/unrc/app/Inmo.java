@@ -1,11 +1,16 @@
 package com.unrc.app;
 
+import ABM.abmBuilding;
 import com.unrc.app.models.Building;
 import com.unrc.app.models.Estate;
 import com.unrc.app.models.Owner;
 import com.unrc.app.models.User;
 import com.unrc.controllers.EstateController;
 import com.unrc.controllers.BuildingController;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.sql.SQLException;
 import java.util.List;
 
 import org.javalite.activejdbc.Base;
@@ -16,18 +21,18 @@ import static spark.Spark.*;
 import spark.*;
 
 public class Inmo {
-    public static void main( String[] args )
+    public static void main( String[] args ) throws IOException
     {
 
 
-      /*  get(new Route("/hello") {
+        get(new Route("/hello") {
             @Override
             public Object handle(Request request, Response response) {
                 return "Hola mundo cruel...";
                 
             }//http://localhost:4567/hello
         });
-*/
+
 //         Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
 //
 //         EstateController.register("Inmo1", "Rio Cuarto","Alberdi", "Salsipuedes 213", "4584837615", "inmo1@hotmail.com", "www.inmo1.com");
@@ -65,10 +70,8 @@ public class Inmo {
         //Building building2 = Building.createIt("type", "farm", "city", "Rio Cuarto", "neighborhood", "Barrio Bimaco", "street", "Castelli 801", "rental", "no", "sale", "yes");
         //Building building3 = Building.createIt("type", "department", "city", "La Carlota", "neighborhood", "Centro", "street", "San Martin 76", "rental", "yes", "sale", "no");
         //BuildingController a = new BuildingController ();
-        //a.register ("tipo", "moldes", "neig", "calle", null, "", "yes", "yes", "2"); 
-       //a.modify (1, "tipo2", "moldess", "neig", "argerich", "", "", "yes", "yes", "2");
-        Search a = new Search ();
-        a.searchBuilding("Rio Cuarto", "house" );
+          // abmBuilding a = new abmBuilding ();
+        //   a.insertar();
         
         
         //Estate estate = Estate.createIt("name", "Estate1", "web_site", "www.estate1.com");
@@ -94,7 +97,15 @@ public class Inmo {
        // e.saveIt();
 
         
-        System.out.println( "Hello World!" );
- 
+        
+    
+    
     }
+
+        
+    
+
+
+ 
+    
 }
