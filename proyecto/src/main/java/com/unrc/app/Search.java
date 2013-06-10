@@ -2,15 +2,28 @@
 package com.unrc.app;
 
 import com.unrc.app.models.Building;
+import com.unrc.app.models.Estate;
+import com.unrc.app.models.Owner;
 import java.util.List;
 
 public class Search {
     
     public void searchBuilding (String city) {
-        List<Building> lista = Building.where("city = ?", city);
+        List<Building> lista;
+        if (city != null) {
+            lista = Building.where("city = ?", city);
+        }
+        else {
+            lista = Building.where("");
+        }
         Building a;
         if (lista.size() > 0) {
-            System.out.println("Inmuebles de " + city + ":");
+            if (city != null) {
+                System.out.println("Inmuebles de " + city + ":");
+            }
+            else {
+                System.out.println ("Inmuebles:" );
+            }
             int i = 0;
             while (i < lista.size()) {
                 System.out.println("--------------------------");
@@ -33,6 +46,51 @@ public class Search {
                 System.out.println ("Description: "+desc);
                 System.out.println ("Sale: "+sale);
                 System.out.println ("Rental: "+rental);
+                i ++;
+            }
+        }
+        else {
+            System.out.println ("No hay inmuebles disponibles en "+city);
+        }
+    }   
+    
+    public void searchEstate (String city) {
+        List<Estate> lista;
+        if (city != null) {
+            lista = Estate.where("city = ?", city);
+        }
+        else {
+            lista = Estate.where("");
+        }
+        Estate a;
+        if (lista.size() > 0) {
+            if (city != null) {
+                System.out.println("Inmuebles de " + city + ":");
+            }
+            else {
+                System.out.println ("Inmuebles:" );
+            }
+            int i = 0;
+            while (i < lista.size()) {
+                System.out.println("--------------------------");
+                a =  lista.get(i);
+                Integer id = (Integer) a.get("id");
+                String name = (String) a.get("name");
+                String cit = (String) a.get("city");
+                String neig = (String) a.get("neighborhood");
+                String street = (String) a.get("street");
+                Integer phone = (Integer) a.get("phone");
+                String mail = (String) a.get("mail");
+                String web = (String) a.get("web_site");
+                                
+                System.out.println ("Id: "+id);
+                System.out.println ("Name: "+name);
+                System.out.println ("City: "+cit);
+                System.out.println ("Neighborhood: "+neig);
+                System.out.println ("Street: "+street);
+                System.out.println ("Phone: "+phone);
+                System.out.println ("Mail: "+mail);
+                System.out.println ("Web site: "+web);                
                 i ++;
             }
         }

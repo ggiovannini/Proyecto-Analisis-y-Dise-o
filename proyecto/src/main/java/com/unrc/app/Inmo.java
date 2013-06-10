@@ -58,7 +58,7 @@ public class Inmo {
 //        e.set("first_name", "Bruno");
 //        e.set("last_name", "Isoardi");
 //        e.saveIt();
-System.out.println ("Id: "+id);
+
         Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
         
        // Building building = Building.createIt("type", "house", "city", "Rio Cuarto", "neighborhood", "Banda Norte", "street", "Marcelo T. Alvear 241", "rental", "yes", "sale", "yes");
