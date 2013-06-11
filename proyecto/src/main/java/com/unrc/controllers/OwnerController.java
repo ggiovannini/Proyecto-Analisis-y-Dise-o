@@ -14,16 +14,18 @@ public class OwnerController {
        owner.saveIt();
     }
     
-    public static void deRegister(int id){  
+  public static String deRegister(int id){
+        String res = "";
         Owner found = Owner.findById(id);
         if (found != null) {
            found.delete();
-           System.out.println("Owner "+id+" borrado");
+           res = "Owner "+id+" borrado";
         }
         else{
-            System.out.println("No se puede eliminar porque no esta");
+           res = "No se puede eliminar porque no esta";
+           
         }
-        
+        return res;
     }
     
      public static void modify (int id, String first_name, String last_name, String city, String neighborhood, String street, String email) {

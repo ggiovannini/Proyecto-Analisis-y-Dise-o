@@ -49,7 +49,7 @@ public class Inmo {
           get(new Route("/abmdueno/") {
             @Override
             public Object handle(Request request, Response response) {
-                return Menu.menuAbmDueño();
+                return Menu.menuAbmDueno();
                 
             }
         });
@@ -83,10 +83,29 @@ public class Inmo {
 			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
                         OwnerController.register(request.queryParams("first_name"), request.queryParams("last_name"),request.queryParams("city"), request.queryParams("neighborhood"),request.queryParams("street"),request.queryParams("email"));
                         Base.close();
-                        return "El dueño ha sido agregado exitosamente";	
+                        return "El dueno ha sido agregado exitosamente";	
 		}
    	});
     
     
+   Spark.get(new Route("/eliminardueno/") {
+     	@Override
+     		public Object handle(Request request, Response response) {
+			response.type("text/html");	     					
+			return ABMOwner.deRegister();			
+	    	}
+	});
+
+	Spark.post(new Route ("/eliminardueno/"){
+	@Override
+		public Object handle(Request request, Response response) {
+                        response.type("text/html");	
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
+                        String message = OwnerController.deRegister(Integer.parseInt(request.queryParams("owner_id")));
+                        Base.close();
+                        return message;	
+		}
+   	});
     }    
+
 }

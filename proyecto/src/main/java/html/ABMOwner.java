@@ -21,4 +21,10 @@ public class ABMOwner {
      			"<input type='submit' value='Add'>"+
      			"<input type='reset' value='Reset'></form>";			
 	    	}
+ public static String deRegister () {
+        return          "" + 
+			"<form method = 'POST' action='/eliminardueno/'  >"+
+     			"id: <input name='owner_id'><P>"+                               
+     			"<input type='submit' value='Remove'>";			
+	    	}
 }

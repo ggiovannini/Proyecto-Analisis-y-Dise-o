@@ -70,7 +70,7 @@ public class Menu {
         
     }
     
-    public static String menuAbmDueño () {
+    public static String menuAbmDueno () {
         String a =  "<html>"+ 
                     "<head>"+ 
                     "<title>Proyecto Analisis 2013</title>"+ 
