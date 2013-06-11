@@ -14,27 +14,30 @@ public class EstateController {
        estate.saveIt();
     }
     
-    public static void deRegister(int id){  
+    public static String deRegister(int id){  
+        String a;
         Estate found = Estate.findById(id);
         if (found != null) {
            found.delete();
-           System.out.println("Estate "+id+" borrada");
+           a = ("Inmobiliaria "+id+" borrada");
         }
         else{
-            System.out.println("No se puede eliminar porque no esta");
+            a = "No existe ";
         }
+        return a;
         
     }
     
-     public static void modify (int id, String name, String city, String neighborhood, String street, String phone, String mail, String web_site) {
-       
+     public static String modify (int id, String name, String city, String neighborhood, String street, String phone, String mail, String web_site) {
+       String a;
         Estate e = Estate.findById(id);
         if (e != null) {
             e.set("name", name, "city", city, "neighborhood", neighborhood, "street", street, "phone", phone, "mail", mail, "web_site", web_site).saveIt();
-            System.out.println("Estate "+id+" modificado");
+            a = "Inmobiliaria "+id+" modificada";
         }
         else {
-            System.out.println("Estate "+id+" no encontrado");
+            a = "Inmobiliaria "+id+" no encontrada";
         }
+        return a;
     }
 }

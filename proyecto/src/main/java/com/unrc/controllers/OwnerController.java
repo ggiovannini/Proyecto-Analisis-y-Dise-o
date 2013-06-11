@@ -19,25 +19,26 @@ public class OwnerController {
         Owner found = Owner.findById(id);
         if (found != null) {
            found.delete();
-           res = "Owner "+id+" borrado";
+           res = "El dueño "+id+" borrado" ;
         }
         else{
-           res = "No se puede eliminar porque no esta";
+           res = "El dueno no existe";
            
         }
         return res;
     }
     
-     public static void modify (int id, String first_name, String last_name, String city, String neighborhood, String street, String email) {
-       
+     public static String modify (int id, String first_name, String last_name, String city, String neighborhood, String street, String email) {
+        String res = "";
         Owner e = Owner.findById(id);
         if (e != null) {
             e.set("first_name", first_name, "last_name", last_name, "city", city, "neighborhood", neighborhood, "street", street, "email", email);     
-            System.out.println("Owner "+id+" modificado");
+            res = "Owner "+id+" modificado";
         }
         else {
-            System.out.println("Owner "+id+" no encontrado");
+            res = "Owner "+id+" no existe";
         }
+        return res;
     }
      
 }

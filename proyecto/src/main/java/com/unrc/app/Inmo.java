@@ -2,7 +2,11 @@ package com.unrc.app;
 
 
 import com.unrc.app.models.Owner;
+import com.unrc.controllers.BuildingController;
+import com.unrc.controllers.EstateController;
 import com.unrc.controllers.OwnerController;
+import html.ABMBuilding;
+import html.ABMEstate;
 import html.ABMOwner;
 import java.io.IOException;
 import html.Menu;
@@ -66,7 +70,7 @@ public class Inmo {
         
         
 
-        
+        // ABM Owner
         
         Spark.get(new Route("/insertardueno/") {
      	@Override
@@ -80,10 +84,14 @@ public class Inmo {
 	@Override
 		public Object handle(Request request, Response response) {
 			response.type("text/html");	
-			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
                         OwnerController.register(request.queryParams("first_name"), request.queryParams("last_name"),request.queryParams("city"), request.queryParams("neighborhood"),request.queryParams("street"),request.queryParams("email"));
                         Base.close();
-                        return "El dueno ha sido agregado exitosamente";	
+                        return "El dueno ha sido agregado exitosamente" + "<p><a href='/menu/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Volver' />"+
+                        "</form></a></p>" ;
+                                	
 		}
    	});
     
@@ -100,12 +108,190 @@ public class Inmo {
 	@Override
 		public Object handle(Request request, Response response) {
                         response.type("text/html");	
-			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
                         String message = OwnerController.deRegister(Integer.parseInt(request.queryParams("owner_id")));
                         Base.close();
-                        return message;	
+                        return message + "<p><a href='/menu/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Volver' />"+
+                        "</form></a></p>";	
 		}
    	});
-    }    
+    
+    Spark.get(new Route("/modificardueno/") {
+     	@Override
+     		public Object handle(Request request, Response response) {
+			response.type("text/html");	     					
+			return ABMOwner.modify();			
+	    	}
+	});
 
+	Spark.post(new Route ("/modificardueno/"){
+	@Override
+		public Object handle(Request request, Response response) {
+			response.type("text/html");	
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
+                        String message = OwnerController.modify(Integer.parseInt(request.queryParams("owner_id")), request.queryParams("first_name"), request.queryParams("last_name"),request.queryParams("city"), request.queryParams("neighborhood"),request.queryParams("street"),request.queryParams("email"));
+                        Base.close();
+                        return message + "<p><a href='/menu/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Volver' />"+
+                        "</form></a></p>";	
+		}
+   	});
+        
+        
+        
+        
+        //---------------------      ABM Inmueble    ---------------------------- 
+        
+        Spark.get(new Route("/insertarinmueble/") {
+     	@Override
+     		public Object handle(Request request, Response response) {
+			response.type("text/html");	     					
+			return ABMBuilding.register();			
+	    	}
+	});
+
+	Spark.post(new Route ("/insertarinmueble/"){
+	@Override
+		public Object handle(Request request, Response response) {
+			response.type("text/html");	
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
+                        BuildingController.register(request.queryParams("type"),request.queryParams("city"), request.queryParams("neighborhood"),request.queryParams("street"),request.queryParams("price"), request.queryParams("description"), request.queryParams("sale"), request.queryParams("rental"), request.queryParams("owner_id"));
+                        Base.close();
+                        return "El inmueble ha sido agregado exitosamente" + "<p><a href='/menu/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Volver' />"+
+                        "</form></a></p>" ;
+                                	
+		}
+   	});
+    
+    
+   Spark.get(new Route("/eliminainmueble/") {
+     	@Override
+     		public Object handle(Request request, Response response) {
+			response.type("text/html");	     					
+			return ABMBuilding.deRegister();			
+	    	}
+	});
+
+	Spark.post(new Route ("/eliminarinmueble"){
+	@Override
+		public Object handle(Request request, Response response) {
+                        response.type("text/html");	
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
+                        String message = BuildingController.deRegister(Integer.parseInt(request.queryParams("owner_id")));
+                        Base.close();
+                        return message + "<p><a href='/menu/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Volver' />"+
+                        "</form></a></p>";	
+		}
+   	});
+    
+    Spark.get(new Route("/modificarinmueble/") {
+     	@Override
+     		public Object handle(Request request, Response response) {
+			response.type("text/html");	     					
+			return ABMBuilding.modify();			
+	    	}
+	});
+
+	Spark.post(new Route ("/modificarinmueble/"){
+	@Override
+		public Object handle(Request request, Response response) {
+			response.type("text/html");	
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
+                        String message = BuildingController.modify(Integer.parseInt(request.queryParams("owner_id")),request.queryParams("type"),request.queryParams("city"), request.queryParams("neighborhood"),request.queryParams("street"),request.queryParams("price"), request.queryParams("description"), request.queryParams("sale"), request.queryParams("rental"), request.queryParams("owner_id"));
+                        Base.close();
+                        return message + "<p><a href='/menu/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Volver' />"+
+                        "</form></a></p>";	
+		}
+   	});
+    
+    
+        
+        
+        
+        //---------------------      ABM Inmobiliaria    ---------------------------- 
+        
+        Spark.get(new Route("/insertarinmob/") {
+     	@Override
+     		public Object handle(Request request, Response response) {
+			response.type("text/html");	     					
+			return ABMEstate.register();			
+	    	}
+	});
+
+	Spark.post(new Route ("/insertarinmob/"){
+	@Override
+		public Object handle(Request request, Response response) {
+			response.type("text/html");	
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
+                        EstateController.register(request.queryParams("name"),request.queryParams("city"), request.queryParams("neighborhood"),request.queryParams("street"),request.queryParams("phone"), request.queryParams("mail"), request.queryParams("web_site"));
+                        Base.close();
+                        return "El dueno ha sido agregado exitosamente" + "<p><a href='/menu/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Volver' />"+
+                        "</form></a></p>" ;
+                                	
+		}
+   	});
+    
+    
+   Spark.get(new Route("/eliminarinmob/") {
+     	@Override
+     		public Object handle(Request request, Response response) {
+			response.type("text/html");	     					
+			return ABMEstate.deRegister();			
+	    	}
+	});
+
+	Spark.post(new Route ("/eliminarinmob"){
+	@Override
+		public Object handle(Request request, Response response) {
+                        response.type("text/html");	
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
+                        String message = EstateController.deRegister(Integer.parseInt(request.queryParams("estate_id")));
+                        Base.close();
+                        return message + "<p><a href='/menu/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Volver' />"+
+                        "</form></a></p>";	
+		}
+   	});
+    
+    Spark.get(new Route("/modificarinmob/") {
+     	@Override
+     		public Object handle(Request request, Response response) {
+			response.type("text/html");	     					
+			return ABMEstate.modify();			
+	    	}
+	});
+
+	Spark.post(new Route ("/modificarinmob/"){
+	@Override
+		public Object handle(Request request, Response response) {
+			response.type("text/html");	
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
+                        String message = EstateController.modify(Integer.parseInt(request.queryParams("estate_id")),request.queryParams("name"),request.queryParams("city"), request.queryParams("neighborhood"),request.queryParams("street"),request.queryParams("phone"), request.queryParams("mail"), request.queryParams("web_site"));
+                        Base.close();
+                        return message + "<p><a href='/menu/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Volver' />"+
+                        "</form></a></p>";	
+		}
+   	});
+    
+    
+    
+    
+    
+    }  
+    
+      
 }

@@ -13,28 +13,31 @@ public class BuildingController {
        building.saveIt();
     }
     
-    public static void deRegister(int id){  
+    public static String deRegister(int id){  
+        String a;
         Building found = Building.findById(id);
         if (found != null) {
            found.delete();
-           System.out.println("Building "+id+" borrada");
+           a ="Building "+id+" borrada";
         }
         else{
-            System.out.println("No se puede eliminar porque no esta");
+            a = "No existe el inmueble";
         }
+        return a;
         
     }
     
-    public static void modify (int id, String type, String city, String neighborhood, String street, String price, String description, String sale, String rental, String owner_id) {
-        
+    public static String modify (int id, String type, String city, String neighborhood, String street, String price, String description, String sale, String rental, String owner_id) {
+        String a ;
         Building e = Building.findById(id);
         if (e != null) {
             e.set("type", type, "city", city,"neighborhood", neighborhood, "street", street, "price", price, "description", description, "sale", sale, "rental", rental, "owner_id", owner_id).saveIt();
-            System.out.println("Building "+id+" modificado");
+            a = "Building "+id+" modificado";
         }
         else {
-            System.out.println("Building "+id+" no encontrado");
+            a = "Inmueble "+id+" no encontrado";
         }
+        return a ;
     }
       
     
