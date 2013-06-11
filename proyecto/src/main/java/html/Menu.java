@@ -8,12 +8,49 @@ public class Menu {
                     "</head>"+ 
                     "<body>"+
                         "<p><h1>---- Menu ----</h1></p>"+
-                        "<a href='abminmueble'<p>1: ABM Inmueble</p></a>"+
-                        "<a href='abminmobiliaria'<p>2: AMB Inmobiliaria</p></a>"+
-                        "<a href='abmdueno'<p>3: ABM Dueno</p></a>"+
-                        "<a href='buscar'<p>4: Buscar</p></a>"+
-                    "</body>"+
+                        "<p><a href='abminmueble'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='ABM Inmueble' />"+
+                        "</form></a></p>"+
+                        "<p><a href='abminmobiliaria'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='ABM Inmobiliaria' />"+
+                        "</form></a></p>"+
+                        "<p><a href='abmdueno'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='ABM Dueno' />"+
+                        "</form></a></p>"+
+                        "<p><a href='buscar'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Buscar' />"+
+                        "</form></a></p>"+
+                        
+"<form method='post' action='agente.php'>"+
+"Ingresa un texto: <input name='ingresatexto' type='text' value='Por favor, ingresa aquí' />"+
+"</form>"+              
+           /*     
+                 "<input id='cambiame' name='campo1' value='' />"+
+ "<script type='text/javascript'>"+
+"var campo = document.getElementById('cambiame');"+
+"campo.setAttribute('value',campo.value);"+
+"</script>"+
+  */                  
+                
+                
+/*"<script type='text/javascript'>"+ 
+"function leerGET(){"+ 
+  "var cadGET = location.search.substr(1,location.search.length);"+ 
+  "var arrGET = cadGET.split('&');"+ 
+  "return arrGET;}"+ 
+   
+"</script>"+*/ 
+                "</body>"+
                     "</html>";
+        
+        
+                
+ 
+ 
         return a;
       
     }
@@ -87,4 +124,5 @@ public class Menu {
         return a;
         
     }
+
 }
