@@ -49,3 +49,9 @@ sale VARCHAR (3),
 rental VARCHAR(3),
 owner_id int(11)
 );
+
+DROP TABLE IF EXISTS citys;
+CREATE TABLE citys(
+id int(11) NOT NULL auto_increment PRIMARY KEY,
+name VARCHAR(50),
+);
