@@ -54,7 +54,8 @@ public class Inmo {
 //        owner.add(estate);
 //        owner.add(estate2);
 //        estate2.add(owner2);
-//        owner.add(building);
+//        owneGonzalez Alan
+
 //        owner2.add(building2);
 //        owner2.add(building3);
 //
