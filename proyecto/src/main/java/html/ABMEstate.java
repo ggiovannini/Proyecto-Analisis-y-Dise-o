@@ -24,7 +24,7 @@ public class ABMEstate {
  public static String deRegister () {
         return          "" + 
 			"<form method = 'POST' action='/eliminarinmob/'  >"+
-     			"id: <input name='owner_id'><P>"+                               
+     			"id: <input name='id'><P>"+                               
      			"<input type='submit' value='Eliminar'>"+
                         "<p><a href='/menu/'"+
                         "<form method='post' action='agente.php'>"+

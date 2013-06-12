@@ -205,7 +205,7 @@ public class Inmo {
 		public Object handle(Request request, Response response) {
 			response.type("text/html");	
 			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
-                        String message = BuildingController.modify(Integer.parseInt(request.queryParams("owner_id")),request.queryParams("type"),request.queryParams("city"), request.queryParams("neighborhood"),request.queryParams("street"),request.queryParams("price"), request.queryParams("description"), request.queryParams("sale"), request.queryParams("rental"), request.queryParams("owner_id"));
+                        String message = BuildingController.modify(Integer.parseInt(request.queryParams("building_id")),request.queryParams("type"),request.queryParams("city"), request.queryParams("neighborhood"),request.queryParams("street"),request.queryParams("price"), request.queryParams("description"), request.queryParams("sale"), request.queryParams("rental"), request.queryParams("owner_id"));
                         Base.close();
                         return message + "<p><a href='/menu/'"+
                         "<form method='post' action='agente.php'>"+
@@ -257,7 +257,7 @@ public class Inmo {
 		public Object handle(Request request, Response response) {
                         response.type("text/html");	
 			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
-                        String message = EstateController.deRegister(Integer.parseInt(request.queryParams("estate_id")));
+                        String message = EstateController.deRegister(Integer.parseInt(request.queryParams("id")));
                         Base.close();
                         return message + "<p><a href='/menu/'"+
                         "<form method='post' action='agente.php'>"+
@@ -279,7 +279,7 @@ public class Inmo {
 		public Object handle(Request request, Response response) {
 			response.type("text/html");	
 			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
-                        String message = EstateController.modify(Integer.parseInt(request.queryParams("estate_id")),request.queryParams("name"),request.queryParams("city"), request.queryParams("neighborhood"),request.queryParams("street"),request.queryParams("phone"), request.queryParams("mail"), request.queryParams("web_site"));
+                        String message = EstateController.modify(Integer.parseInt(request.queryParams("id")),request.queryParams("name"),request.queryParams("city"), request.queryParams("neighborhood"),request.queryParams("street"),request.queryParams("phone"), request.queryParams("mail"), request.queryParams("web_site"));
                         Base.close();
                         return message + "<p><a href='/menu/'"+
                         "<form method='post' action='agente.php'>"+

@@ -32,7 +32,7 @@ public class ABMOwner {
  public static String modify () {
         return          "" + 
 			"<form method = 'POST' action='/modificardueno/'  >"+
-                        "Id: <input name='id'><P>"+
+                        "Id: <input name='owner_id'><P>"+
      			"Nombre: <input name='first_name'><P>"+
      			"Apellido: <input name='last_name'><P>"+
                         "Ciudad : <input name='city'><P>"+                       

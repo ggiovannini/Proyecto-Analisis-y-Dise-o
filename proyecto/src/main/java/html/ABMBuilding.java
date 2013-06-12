@@ -36,7 +36,7 @@ public class ABMBuilding {
  public static String modify () {
         return          "" + 
 			"<form method = 'POST' action='/modificarinmueble/'  >"+
-                        "Id: <input name='Id'><P>"+  
+                        "Id: <input name='building_id'><P>"+  
      			"Tipo: <input name='type'><P>"+
      			"Ciudad: <input name='city'><P>"+
                         "Barrio  : <input name='neighborhood'><P>"+                       

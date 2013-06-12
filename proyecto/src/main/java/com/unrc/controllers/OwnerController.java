@@ -29,10 +29,10 @@ public class OwnerController {
     }
     
      public static String modify (int id, String first_name, String last_name, String city, String neighborhood, String street, String email) {
-        String res = "";
+        String res;
         Owner e = Owner.findById(id);
         if (e != null) {
-            e.set("first_name", first_name, "last_name", last_name, "city", city, "neighborhood", neighborhood, "street", street, "email", email);     
+            e.set("first_name", first_name, "last_name", last_name, "city", city, "neighborhood", neighborhood, "street", street, "email", email).saveIt();     
             res = "Owner "+id+" modificado";
         }
         else {
