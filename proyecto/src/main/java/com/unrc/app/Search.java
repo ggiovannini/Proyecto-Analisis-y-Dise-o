@@ -8,8 +8,9 @@ import java.util.List;
 
 public class Search {
     
-    public void searchBuilding (String city, String type) {
+    public static String searchBuilding (String city, String type) {
         List<Building> lista;
+        String inm = "No se encontraron resultados";
         
         if ((city != null) && (type != null)) {
             lista = Building.where("city = ? AND type = ?", city, type);
@@ -30,14 +31,15 @@ public class Search {
         Building a;
         if (lista.size() > 0) {
             if (city != null) {
-                System.out.println("Inmuebles de " + city + ":");
+                inm = "<p>Inmuebles de " + city + ":</p>";
             }
             else {
-                System.out.println ("Inmuebles:" );
+                inm = "<p>Inmuebles:</p>" ;
             }
             int i = 0;
+            
             while (i < lista.size()) {
-                System.out.println("--------------------------");
+                inm = inm + "<p>--------------------------</p>";
                 a =  lista.get(i);
                 Integer id = (Integer) a.get("id");
                 String ty = (String) a.get("type");
@@ -48,24 +50,23 @@ public class Search {
                 String desc = (String) a.get("description");
                 String sale = (String) a.get("sale");
                 String rental = (String) a.get("rental");                
-                System.out.println ("Id: "+id);
-                System.out.println ("Tipe: "+ty);
-                System.out.println ("City: "+cit);
-                System.out.println ("Neighborhood: "+neig);
-                System.out.println ("Street: "+street);
-                System.out.println ("Price: "+price);
-                System.out.println ("Description: "+desc);
-                System.out.println ("Sale: "+sale);
-                System.out.println ("Rental: "+rental);
+                inm = inm + "<p>Id: "+id+"</p>";
+                inm = inm + "<p>Tipe: "+ty+"</p>";
+                inm = inm + "<p>City: "+cit+"</p>";
+                inm = inm + "<p>Neighborhood: "+neig+"</p>";
+                inm = inm + "<p>Street: "+street+"</p>";
+                inm = inm + "<p>Price: "+price+"</p>";
+                inm = inm + "<p>Description: "+desc+"</p>";
+                inm = inm + "<p>Sale: "+sale+"</p>";
+                inm = inm + "<p>Rental: "+rental+"</p>";
                 i ++;
             }
-        }
-        else {
-            System.out.println ("No hay inmuebles disponibles en "+city);
-        }
+        }       
+        return inm;
     }   
     
-    public void searchEstate (String city) {
+    public static String searchEstate (String city) {
+        String inm = "No se encontraron resultados";
         List<Estate> lista;
         if (city != null) {
             lista = Estate.where("city = ?", city);
@@ -76,14 +77,14 @@ public class Search {
         Estate a;
         if (lista.size() > 0) {
             if (city != null) {
-                System.out.println("Inmuebles de " + city + ":");
+                inm = "<p>Inmuebles de " + city + ":</p>";
             }
             else {
-                System.out.println ("Inmuebles:" );
+                inm =  "Inmuebles:</p>" ;
             }
             int i = 0;
             while (i < lista.size()) {
-                System.out.println("--------------------------");
+                inm = inm + "<p>--------------------------</p>";
                 a =  lista.get(i);
                 Integer id = (Integer) a.get("id");
                 String name = (String) a.get("name");
@@ -94,23 +95,22 @@ public class Search {
                 String mail = (String) a.get("mail");
                 String web = (String) a.get("web_site");
                                 
-                System.out.println ("Id: "+id);
-                System.out.println ("Name: "+name);
-                System.out.println ("City: "+cit);
-                System.out.println ("Neighborhood: "+neig);
-                System.out.println ("Street: "+street);
-                System.out.println ("Phone: "+phone);
-                System.out.println ("Mail: "+mail);
-                System.out.println ("Web site: "+web);                
+                inm = inm + "<p>Id: "+id+"</p>";
+                inm = inm + "<p>Name: "+name+"</p>";
+                inm = inm + "<p>City: "+cit+"</p>";
+                inm = inm + "<p>Neighborhood: "+neig+"</p>";
+                inm = inm + "<p>Street: "+street+"</p>";
+                inm = inm + "<p>Phone: "+phone+"</p>";
+                inm = inm + "<p>Mail: "+mail+"</p>";
+                inm = inm + "<p>Web site: "+web+"</p>";                
                 i ++;
             }
         }
-        else {
-            System.out.println ("No hay inmuebles disponibles en "+city);
-        }
+        return inm;
     }  
     
-    public void searchOwner (String city) {
+    public static String searchOwner (String city) {
+        String inm = "No se encontraron resultados ";
         List<Owner> lista;
         if (city != null) {
             lista = Owner.where("city = ?", city);
@@ -121,14 +121,14 @@ public class Search {
         Owner a;
         if (lista.size() > 0) {
             if (city != null) {
-                System.out.println("DUeños de " + city + ":");
+                inm = "<p>DUeños de " + city + ":</p>";
             }
             else {
-                System.out.println ("Dueños:" );
+                inm = "<p>Dueños:</p>";
             }
             int i = 0;
             while (i < lista.size()) {
-                System.out.println("--------------------------");
+                inm = inm +"<p>--------------------------</p>";
                 a =  lista.get(i);
                 Integer id = (Integer) a.get("id");
                 String fst = (String) a.get("first_name");
@@ -137,18 +137,16 @@ public class Search {
                 String neig = (String) a.get("neighborhood");
                 String street = (String) a.get("street");
                 String email = (String) a.get("email");
-                System.out.println ("Id: "+id);
-                System.out.println ("First name: "+fst);
-                System.out.println ("Last name: "+last);
-                System.out.println ("Neighborhood: "+neig);
-                System.out.println ("Street: "+street);
-                System.out.println ("Email: "+email);
+                inm = inm +"<p>Id: "+id+"</p>";
+                inm = inm +"<p>First name: "+fst+"</p>";
+                inm = inm +"<p>Last name: "+last+"</p>";
+                inm = inm +"<p>Neighborhood: "+neig+"</p>";
+                inm = inm +"<p>Street: "+street+"</p>";
+                inm = inm +"<p>Email: "+email+"</p>";
                 i ++;
             }
         }
-        else {
-            System.out.println ("No hay inmuebles disponibles en "+city);
-        }
+        return inm;
     }
     
     

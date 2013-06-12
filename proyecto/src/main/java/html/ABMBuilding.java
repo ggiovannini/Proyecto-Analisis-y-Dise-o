@@ -1,12 +1,5 @@
 package html;
 
-import com.unrc.controllers.OwnerController;
-import org.javalite.activejdbc.Base;
-import spark.Request;
-import spark.Response;
-import spark.Route;
-import spark.Spark;
-
 
 public class ABMBuilding {
     
@@ -25,16 +18,17 @@ public class ABMBuilding {
                         "<input type='submit' value='Add'>"+
      			"<input type='reset' value='Reset'></form>";			
 	    	}
+    
  public static String deRegister () {
         return          "" + 
-			"<form method = 'POST' action='/eliminarinmueble  >"+
+			"<form method = 'POST' action='/eliminarinmueble/  >"+
      			"id: <input name='owner_id'><P>"+                               
      			"<input type='submit' value='Remove'>";			
 	    	}
  
  public static String modify () {
         return          "" + 
-			"<form method = 'POST' action='/modificarinmueble'  >"+
+			"<form method = 'POST' action='/modificarinmueble/'  >"+
                         "Id: <input name='Id'><P>"+  
      			"Tipo: <input name='type'><P>"+
      			"Ciudad: <input name='city'><P>"+

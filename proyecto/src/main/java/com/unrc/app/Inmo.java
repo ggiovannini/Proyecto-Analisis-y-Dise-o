@@ -1,24 +1,25 @@
 package com.unrc.app;
 
 
-import com.unrc.app.models.Owner;
+
 import com.unrc.controllers.BuildingController;
 import com.unrc.controllers.EstateController;
 import com.unrc.controllers.OwnerController;
 import html.ABMBuilding;
 import html.ABMEstate;
 import html.ABMOwner;
+import html.SearchMenu;
 import java.io.IOException;
 import html.Menu;
 
 import org.javalite.activejdbc.Base;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 
 import static spark.Spark.*;
 import spark.*;
 
 public class Inmo {
+    
     
     public static void main( String[] args ) throws IOException
     {
@@ -169,7 +170,7 @@ public class Inmo {
    	});
     
     
-   Spark.get(new Route("/eliminainmueble/") {
+   Spark.get(new Route("/eliminarinmueble/") {
      	@Override
      		public Object handle(Request request, Response response) {
 			response.type("text/html");	     					
@@ -177,7 +178,7 @@ public class Inmo {
 	    	}
 	});
 
-	Spark.post(new Route ("/eliminarinmueble"){
+	Spark.post(new Route ("/eliminarinmueble/"){
 	@Override
 		public Object handle(Request request, Response response) {
                         response.type("text/html");	
@@ -251,7 +252,7 @@ public class Inmo {
 	    	}
 	});
 
-	Spark.post(new Route ("/eliminarinmob"){
+	Spark.post(new Route ("/eliminarinmob/"){
 	@Override
 		public Object handle(Request request, Response response) {
                         response.type("text/html");	
@@ -287,6 +288,124 @@ public class Inmo {
 		}
    	});
     
+        
+        
+        // ------------------------------------ Search ---------------------------------------
+        
+        Spark.get(new Route("/buscarcasa/") {
+     	@Override
+     		public Object handle(Request request, Response response) {
+			response.type("text/html");	     					
+			return SearchMenu.buscarCasa();			
+	    	}
+	});
+
+	Spark.post(new Route ("/buscarcasa/"){
+	@Override
+		public Object handle(Request request, Response response) {
+			response.type("text/html");	
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
+                        String message = Search.searchBuilding(request.queryParams("city"), request.queryParams("house"));
+                        Base.close();
+                        return message + "<p><a href='/menu/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Volver' />"+
+                        "</form></a></p>";	
+		}
+   	});
+        
+        
+        Spark.get(new Route("/buscarcampo/") {
+     	@Override
+     		public Object handle(Request request, Response response) {
+			response.type("text/html");	     					
+			return SearchMenu.buscarCampo();			
+	    	}
+	});
+
+	Spark.post(new Route ("/buscarcampo/"){
+	@Override
+		public Object handle(Request request, Response response) {
+			response.type("text/html");	
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
+                        String message = Search.searchBuilding(request.queryParams("city"), request.queryParams("farm"));
+                        Base.close();
+                        return message + "<p><a href='/menu/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Volver' />"+
+                        "</form></a></p>";	
+		}
+   	});
+        
+        Spark.get(new Route("/buscardepartamento/") {
+     	@Override
+     		public Object handle(Request request, Response response) {
+			response.type("text/html");	     					
+			return SearchMenu.buscarDepartamento();			
+	    	}
+	});
+
+	Spark.post(new Route ("/buscardepartamento/"){
+	@Override
+		public Object handle(Request request, Response response) {
+			response.type("text/html");	
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
+                        String message = Search.searchBuilding(request.queryParams("city"), request.queryParams("department"));
+                        Base.close();
+                        return message + "<p><a href='/menu/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Volver' />"+
+                        "</form></a></p>";	
+		}
+   	});
+        
+        
+        
+        Spark.get(new Route("/buscarinmob/") {
+     	@Override
+     		public Object handle(Request request, Response response) {
+			response.type("text/html");	     					
+			return SearchMenu.buscarInmob();			
+	    	}
+	});
+
+	Spark.post(new Route ("/buscarinmob/"){
+	@Override
+		public Object handle(Request request, Response response) {
+			response.type("text/html");	
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
+                        String message = Search.searchEstate(request.queryParams("city"));
+                        Base.close();
+                        return message + "<p><a href='/menu/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Volver' />"+
+                        "</form></a></p>";	
+		}
+   	});
+        
+        
+        
+        Spark.get(new Route("/buscardueno/") {
+     	@Override
+     		public Object handle(Request request, Response response) {
+			response.type("text/html");	     					
+			return SearchMenu.buscarDueno();			
+	    	}
+	});
+
+	Spark.post(new Route ("/buscardueno/"){
+	@Override
+		public Object handle(Request request, Response response) {
+			response.type("text/html");	
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
+                        String message = Search.searchOwner(request.queryParams("city"));
+                        Base.close();
+                        return message + "<p><a href='/menu/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Volver' />"+
+                        "</form></a></p>";	
+		}
+   	});
     
     
     
