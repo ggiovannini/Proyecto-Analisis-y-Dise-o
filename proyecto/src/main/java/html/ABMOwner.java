@@ -12,14 +12,21 @@ public class ABMOwner {
                         "Barrio: <input name='neighborhood'><P>"+       
                         "Calle: <input name='street'><P>"+
                         "Email: "+"<input name='email'><P>"+                                
-     			"<input type='submit' value='Add'>"+
-     			"<input type='reset' value='Reset'></form>";			
+     			"<input type='submit' value='Insertar'>"+
+     			"<p><a href='/menu/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Volver' />"+
+                        "</form></a></p>";			
 	    	}
  public static String deRegister () {
         return          "" + 
 			"<form method = 'POST' action='/eliminardueno/'  >"+
      			"id: <input name='owner_id'><P>"+                               
-     			"<input type='submit' value='Remove'>";			
+     			"<input type='submit' value='Eliminar'>"+
+                        "<p><a href='/menu/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Volver' />"+
+                        "</form></a></p>";
 	    	}
  
  public static String modify () {
@@ -32,7 +39,10 @@ public class ABMOwner {
                         "Barrio: <input name='neighborhood'><P>"+       
                         "Calle: <input name='street'><P>"+
                         "Email: "+"<input name='email'><P>"+                                
-     			"<input type='submit' value='Add'>"+
-     			"<input type='reset' value='Reset'></form>";			
+     			"<input type='submit' value='Modificar'>"+
+     			"<p><a href='/menu/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Volver' />"+
+                        "</form></a></p>";			
 	    	}
 }

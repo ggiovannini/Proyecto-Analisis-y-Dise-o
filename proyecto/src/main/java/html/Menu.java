@@ -53,7 +53,7 @@ public class Menu {
                         "<input type='submit' value='Insertar inmueble' />"+
                         "</form></a></p>"+
                 
-                        "<p><a href='/eliminartarinmueble/'"+
+                        "<p><a href='/eliminarinmueble/'"+
                         "<form method='post' action='agente.php'>"+
                         "<input type='submit' value='Eliminar inmueble' />"+
                         "</form></a></p>"+
@@ -115,7 +115,7 @@ public class Menu {
                     "<title>Proyecto Analisis 2013</title>"+ 
                     "</head>"+ 
                     "<body>"+
-                        "<p><h1>---- ABM Dueño ----</h1></p>"+
+                        "<p><h1>---- ABM Dueno ----</h1></p>"+
                 
                         "<p><a href='/insertardueno/'"+
                         "<form method='post' action='agente.php'>"+
@@ -129,7 +129,7 @@ public class Menu {
                 
                         "<p><a href='/modificardueno/'"+
                         "<form method='post' action='agente.php'>"+
-                        "<input type='submit' value='MOdificar dueno' />"+
+                        "<input type='submit' value='Modificar dueno' />"+
                         "</form></a></p>"+
                 
                         "<p><a href='/menu/'"+

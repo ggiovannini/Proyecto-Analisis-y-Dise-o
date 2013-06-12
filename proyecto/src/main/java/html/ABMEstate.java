@@ -15,14 +15,21 @@ public class ABMEstate {
                         "Telefono: "+"<input name='phone'><P>"+
                         "Email: "+"<input name='email'><P>"+ 
                         "Sitio web "+"<input name='web_site'><P>"+
-     			"<input type='submit' value='Add'>"+
-     			"<input type='reset' value='Reset'></form>";			
+     			"<input type='submit' value='Insertar'>"+
+     			"<p><a href='/menu/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Volver' />"+
+                        "</form></a></p>";			
 	    	}
  public static String deRegister () {
         return          "" + 
 			"<form method = 'POST' action='/eliminarinmob/'  >"+
      			"id: <input name='owner_id'><P>"+                               
-     			"<input type='submit' value='Remove'>";			
+     			"<input type='submit' value='Eliminar'>"+
+                        "<p><a href='/menu/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Volver' />"+
+                        "</form></a></p>";
 	    	}
  
  public static String modify () {
@@ -36,7 +43,10 @@ public class ABMEstate {
                         "Telefono: "+"<input name='phone'><P>"+
                         "Email: "+"<input name='email'><P>"+ 
                         "Sitio web "+"<input name='web_site'><P>"+
-     			"<input type='submit' value='Add'>"+
-     			"<input type='reset' value='Reset'></form>";			
+     			"<input type='submit' value='Modificar'>"+
+     			"<p><a href='/menu/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Volver' />"+
+                        "</form></a></p>";			
 	    	}
 }

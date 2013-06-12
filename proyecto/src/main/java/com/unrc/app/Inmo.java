@@ -71,7 +71,7 @@ public class Inmo {
         
         
 
-        // ABM Owner
+        //----------------------------------------- ABM Owner -----------------------------------------------------//
         
         Spark.get(new Route("/insertardueno/") {
      	@Override
@@ -85,7 +85,7 @@ public class Inmo {
 	@Override
 		public Object handle(Request request, Response response) {
 			response.type("text/html");	
-			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
                         OwnerController.register(request.queryParams("first_name"), request.queryParams("last_name"),request.queryParams("city"), request.queryParams("neighborhood"),request.queryParams("street"),request.queryParams("email"));
                         Base.close();
                         return "El dueno ha sido agregado exitosamente" + "<p><a href='/menu/'"+
@@ -109,7 +109,7 @@ public class Inmo {
 	@Override
 		public Object handle(Request request, Response response) {
                         response.type("text/html");	
-			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
                         String message = OwnerController.deRegister(Integer.parseInt(request.queryParams("owner_id")));
                         Base.close();
                         return message + "<p><a href='/menu/'"+
@@ -131,7 +131,7 @@ public class Inmo {
 	@Override
 		public Object handle(Request request, Response response) {
 			response.type("text/html");	
-			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
                         String message = OwnerController.modify(Integer.parseInt(request.queryParams("owner_id")), request.queryParams("first_name"), request.queryParams("last_name"),request.queryParams("city"), request.queryParams("neighborhood"),request.queryParams("street"),request.queryParams("email"));
                         Base.close();
                         return message + "<p><a href='/menu/'"+
@@ -144,7 +144,7 @@ public class Inmo {
         
         
         
-        //---------------------      ABM Inmueble    ---------------------------- 
+        //------------------------------      ABM Inmueble    ---------------------------- //
         
         Spark.get(new Route("/insertarinmueble/") {
      	@Override
@@ -158,7 +158,7 @@ public class Inmo {
 	@Override
 		public Object handle(Request request, Response response) {
 			response.type("text/html");	
-			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
                         BuildingController.register(request.queryParams("type"),request.queryParams("city"), request.queryParams("neighborhood"),request.queryParams("street"),request.queryParams("price"), request.queryParams("description"), request.queryParams("sale"), request.queryParams("rental"), request.queryParams("owner_id"));
                         Base.close();
                         return "El inmueble ha sido agregado exitosamente" + "<p><a href='/menu/'"+
@@ -182,7 +182,7 @@ public class Inmo {
 	@Override
 		public Object handle(Request request, Response response) {
                         response.type("text/html");	
-			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
                         String message = BuildingController.deRegister(Integer.parseInt(request.queryParams("owner_id")));
                         Base.close();
                         return message + "<p><a href='/menu/'"+
@@ -204,7 +204,7 @@ public class Inmo {
 	@Override
 		public Object handle(Request request, Response response) {
 			response.type("text/html");	
-			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
                         String message = BuildingController.modify(Integer.parseInt(request.queryParams("owner_id")),request.queryParams("type"),request.queryParams("city"), request.queryParams("neighborhood"),request.queryParams("street"),request.queryParams("price"), request.queryParams("description"), request.queryParams("sale"), request.queryParams("rental"), request.queryParams("owner_id"));
                         Base.close();
                         return message + "<p><a href='/menu/'"+
@@ -218,7 +218,7 @@ public class Inmo {
         
         
         
-        //---------------------      ABM Inmobiliaria    ---------------------------- 
+        //----------------------------------      ABM Inmobiliaria    ----------------------------// 
         
         Spark.get(new Route("/insertarinmob/") {
      	@Override
@@ -232,7 +232,7 @@ public class Inmo {
 	@Override
 		public Object handle(Request request, Response response) {
 			response.type("text/html");	
-			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
                         EstateController.register(request.queryParams("name"),request.queryParams("city"), request.queryParams("neighborhood"),request.queryParams("street"),request.queryParams("phone"), request.queryParams("mail"), request.queryParams("web_site"));
                         Base.close();
                         return "El dueno ha sido agregado exitosamente" + "<p><a href='/menu/'"+
@@ -256,7 +256,7 @@ public class Inmo {
 	@Override
 		public Object handle(Request request, Response response) {
                         response.type("text/html");	
-			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
                         String message = EstateController.deRegister(Integer.parseInt(request.queryParams("estate_id")));
                         Base.close();
                         return message + "<p><a href='/menu/'"+
@@ -278,7 +278,7 @@ public class Inmo {
 	@Override
 		public Object handle(Request request, Response response) {
 			response.type("text/html");	
-			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
                         String message = EstateController.modify(Integer.parseInt(request.queryParams("estate_id")),request.queryParams("name"),request.queryParams("city"), request.queryParams("neighborhood"),request.queryParams("street"),request.queryParams("phone"), request.queryParams("mail"), request.queryParams("web_site"));
                         Base.close();
                         return message + "<p><a href='/menu/'"+
@@ -290,7 +290,7 @@ public class Inmo {
     
         
         
-        // ------------------------------------ Search ---------------------------------------
+        // ------------------------------------ Search ---------------------------------------//
         
         Spark.get(new Route("/buscarcasa/") {
      	@Override
@@ -304,8 +304,8 @@ public class Inmo {
 	@Override
 		public Object handle(Request request, Response response) {
 			response.type("text/html");	
-			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
-                        String message = Search.searchBuilding(request.queryParams("city"), request.queryParams("house"));
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
+                        String message = Search.searchBuilding(request.queryParams("city"), "house");
                         Base.close();
                         return message + "<p><a href='/menu/'"+
                         "<form method='post' action='agente.php'>"+
@@ -327,8 +327,8 @@ public class Inmo {
 	@Override
 		public Object handle(Request request, Response response) {
 			response.type("text/html");	
-			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
-                        String message = Search.searchBuilding(request.queryParams("city"), request.queryParams("farm"));
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
+                        String message = Search.searchBuilding(request.queryParams("city"),"farm");
                         Base.close();
                         return message + "<p><a href='/menu/'"+
                         "<form method='post' action='agente.php'>"+
@@ -349,8 +349,8 @@ public class Inmo {
 	@Override
 		public Object handle(Request request, Response response) {
 			response.type("text/html");	
-			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
-                        String message = Search.searchBuilding(request.queryParams("city"), request.queryParams("department"));
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
+                        String message = Search.searchBuilding(request.queryParams("city"), "department");
                         Base.close();
                         return message + "<p><a href='/menu/'"+
                         "<form method='post' action='agente.php'>"+
@@ -373,7 +373,7 @@ public class Inmo {
 	@Override
 		public Object handle(Request request, Response response) {
 			response.type("text/html");	
-			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
                         String message = Search.searchEstate(request.queryParams("city"));
                         Base.close();
                         return message + "<p><a href='/menu/'"+
@@ -397,7 +397,7 @@ public class Inmo {
 	@Override
 		public Object handle(Request request, Response response) {
 			response.type("text/html");	
-			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "guido");
+			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
                         String message = Search.searchOwner(request.queryParams("city"));
                         Base.close();
                         return message + "<p><a href='/menu/'"+

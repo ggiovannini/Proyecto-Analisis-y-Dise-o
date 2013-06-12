@@ -15,15 +15,22 @@ public class ABMBuilding {
      			"Venta: "+"<input name='sale'><P>"+
                         "Alquiler: "+"<input name='rental'><P>"+
                         "Id Dueno: "+"<input name='owner_id'><P>"+
-                        "<input type='submit' value='Add'>"+
-     			"<input type='reset' value='Reset'></form>";			
+                        "<input type='submit' value='Insertar'>"+
+     			"<p><a href='/menu/'"+                        
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Volver' />"+
+                        "</form></a></p>";			
 	    	}
     
  public static String deRegister () {
         return          "" + 
 			"<form method = 'POST' action='/eliminarinmueble/  >"+
      			"id: <input name='owner_id'><P>"+                               
-     			"<input type='submit' value='Remove'>";			
+     			"<input type='submit' value='Eliminar'>"+
+                        "<p><a href='/menu/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Volver' />"+
+                        "</form></a></p>";
 	    	}
  
  public static String modify () {
@@ -39,8 +46,11 @@ public class ABMBuilding {
      			"Venta: "+"<input name='sale'><P>"+
                         "Alquiler: "+"<input name='rental'><P>"+
                         "Id dueño: "+"<input name='owner_id'><P>"+
-                        "<input type='submit' value='Add'>"+
-     			"<input type='reset' value='Reset'></form>";			
+                        "<input type='submit' value='Modificar'>"+
+     			"<p><a href='/menu/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Volver' />"+
+                        "</form></a></p>";			
 	    	}
 
 
