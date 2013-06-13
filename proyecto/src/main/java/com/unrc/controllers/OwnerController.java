@@ -19,7 +19,7 @@ public class OwnerController {
         Owner found = Owner.findById(id);
         if (found != null) {
            found.delete();
-           res = "El dueño "+id+" borrado" ;
+           res = "El dueno "+id+" borrado" ;
         }
         else{
            res = "El dueno no existe";
@@ -33,10 +33,10 @@ public class OwnerController {
         Owner e = Owner.findById(id);
         if (e != null) {
             e.set("first_name", first_name, "last_name", last_name, "city", city, "neighborhood", neighborhood, "street", street, "email", email).saveIt();     
-            res = "Owner "+id+" modificado";
+            res = "Dueno "+id+" modificado";
         }
         else {
-            res = "Owner "+id+" no existe";
+            res = "El dueno "+id+" no existe";
         }
         return res;
     }

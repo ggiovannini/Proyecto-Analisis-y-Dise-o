@@ -1,6 +1,7 @@
 package html;
 
 public class Menu {
+    
     public static String menuPrinc () {
         String a =  "<html>"+ 
                     "<head>"+ 
@@ -22,11 +23,17 @@ public class Menu {
                         "<p><a href='/abmdueno/'"+
                         "<form method='post' action='agente.php'>"+
                         "<input type='submit' value='ABM Dueno' />"+
-                        "</form></a></p>"+
+                        "</form></a></p>"+              
+                        
                             
                         "<p><a href='/buscar/'"+
                         "<form method='post' action='agente.php'>"+
                         "<input type='submit' value='Buscar' />"+
+                        "</form></a></p>"+
+                
+                        "<p><a href='/listar/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Listar tablas' />"+
                         "</form></a></p>"+
 
                        "</body>"+
@@ -175,6 +182,40 @@ public class Menu {
                         "<input type='submit' value='Buscar inmobiliaria' />"+
                         "</form></a></p>"+
                 
+                        "<p><a href='/menu/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Volver' />"+
+                        "</form></a></p>"+
+                    "</body>"+
+                    "</html>";
+        return a;
+        
+    }
+    
+    public static String menuListar () {
+        String a =  "<html>"+ 
+                    "<head>"+ 
+                    "<title>Proyecto Analisis 2013</title>"+ 
+                    "</head>"+ 
+                    "<body>"+
+                        "<p><h1>---- Listar tablas ----</h1></p>"+
+                
+                        "<p><a href='/listarinmueble/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Listar inmuebles' />"+
+                        "</form></a></p>"+
+                
+                        "<p><a href='/listardueno/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Listar duenos' />"+
+                        "</form></a></p>"+
+                
+                        "<p><a href='/listarinmob/'"+
+                        "<form method='post' action='agente.php'>"+
+                        "<input type='submit' value='Listar inmobiliarias' />"+
+                        "</form></a></p>"+
+                
+                        
                         "<p><a href='/menu/'"+
                         "<form method='post' action='agente.php'>"+
                         "<input type='submit' value='Volver' />"+
