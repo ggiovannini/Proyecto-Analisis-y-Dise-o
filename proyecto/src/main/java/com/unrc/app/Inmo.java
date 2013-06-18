@@ -242,7 +242,7 @@ public class Inmo {
 			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
                         EstateController.register(request.queryParams("name"),request.queryParams("city"), request.queryParams("neighborhood"),request.queryParams("street"),request.queryParams("phone"), request.queryParams("mail"), request.queryParams("web_site"));
                         Base.close();
-                        return "El dueno ha sido agregado exitosamente" + "<p><a href='/abminmobiliaria/'"+
+                        return "La inmobiliaria ha sido agregada exitosamente" + "<p><a href='/abminmobiliaria/'"+
                         "<form method='post' action='agente.php'>"+
                         "<input type='submit' value='Volver' />"+
                         "</form></a></p>" ;
@@ -312,7 +312,7 @@ public class Inmo {
 		public Object handle(Request request, Response response) {
 			response.type("text/html");	
 			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
-                        String message = Search.searchBuilding(request.queryParams("city"), "house");
+                        String message = Search.searchBuilding(request.queryParams("city"), "casa");
                         Base.close();
                         return message + "<p><a href='/buscar/'"+
                         "<form method='post' action='agente.php'>"+
@@ -335,7 +335,7 @@ public class Inmo {
 		public Object handle(Request request, Response response) {
 			response.type("text/html");	
 			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
-                        String message = Search.searchBuilding(request.queryParams("city"),"farm");
+                        String message = Search.searchBuilding(request.queryParams("city"),"campo");
                         Base.close();
                         return message + "<p><a href='/buscar/'"+
                         "<form method='post' action='agente.php'>"+
@@ -357,7 +357,7 @@ public class Inmo {
 		public Object handle(Request request, Response response) {
 			response.type("text/html");	
 			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
-                        String message = Search.searchBuilding(request.queryParams("city"), "department");
+                        String message = Search.searchBuilding(request.queryParams("city"), "departamento");
                         Base.close();
                         return message + "<p><a href='/buscar/'"+
                         "<form method='post' action='agente.php'>"+
@@ -407,7 +407,7 @@ public class Inmo {
 			Base.open("com.mysql.jdbc.Driver", "jdbc:mysql://localhost/inmoapp_development", "root", "root");
                         String message = Search.searchOwner(request.queryParams("city"));
                         Base.close();
-                        return message + "<p><a href='/buscar'"+
+                        return message + "<p><a href='/buscar/'"+
                         "<form method='post' action='agente.php'>"+
                         "<input type='submit' value='Volver' />"+
                         "</form></a></p>";	

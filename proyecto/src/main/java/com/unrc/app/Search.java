@@ -46,7 +46,7 @@ public class Search {
                 String cit = (String) a.get("city");
                 String neig = (String) a.get("neighborhood");
                 String street = (String) a.get("street");
-                Integer price = (Integer) a.get("price");
+                String price = (String) a.get("price");
                 String desc = (String) a.get("description");
                 String sale = (String) a.get("sale");
                 String rental = (String) a.get("rental");                
@@ -91,7 +91,7 @@ public class Search {
                 String cit = (String) a.get("city");
                 String neig = (String) a.get("neighborhood");
                 String street = (String) a.get("street");
-                Integer phone = (Integer) a.get("phone");
+                String phone = (String) a.get("phone");
                 String mail = (String) a.get("mail");
                 String web = (String) a.get("web_site");
                                 

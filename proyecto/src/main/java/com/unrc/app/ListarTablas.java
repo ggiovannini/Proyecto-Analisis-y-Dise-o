@@ -55,7 +55,7 @@ public class ListarTablas {
                 String city = (String) a.get("city");
                 String neig = (String) a.get("neighborhood");
                 String street = (String) a.get("street");
-                Double price = (Double) a.get("price");
+                String price = (String) a.get("price");
                 String desc = (String) a.get("description");
                 String sale = (String) a.get("sale");
                 String rental = (String) a.get("rental");
@@ -97,7 +97,7 @@ public class ListarTablas {
                 String web_site = (String) a.get("web_site");
                 inm = inm +"<p>Id: "+id+"</p>";
                 inm = inm +"<p>First Name: "+name+"</p>";
-                inm = inm +"<p>Last City: "+city+"</p>";
+                inm = inm +"<p>City: "+city+"</p>";
                 inm = inm +"<p>Neighborhood: "+neig+"</p>";
                 inm = inm +"<p>Street: "+street+"</p>";
                 inm = inm +"<p>Phone: "+phone+"</p>";
