@@ -77,7 +77,7 @@ public class Search {
         Estate a;
         if (lista.size() > 0) {
             if (city != null) {
-                inm = "<p>Inmuebles de " + city + ":</p>";
+                inm = "<p>Inmobiliarias de " + city + ":</p>";
             }
             else {
                 inm =  "Inmuebles:</p>" ;
@@ -121,7 +121,7 @@ public class Search {
         Owner a;
         if (lista.size() > 0) {
             if (city != null) {
-                inm = "<p>DUeños de " + city + ":</p>";
+                inm = "<p>Duenios de " + city + ":</p>";
             }
             else {
                 inm = "<p>Dueños:</p>";
