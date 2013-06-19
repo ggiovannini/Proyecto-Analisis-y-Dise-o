@@ -9,7 +9,7 @@ import java.util.List;
 public class ListarTablas {
     
     public static String listarDuenos () {
-        String inm = "La tabla esta vacia";
+        String inm = "<p>La tabla esta vacia</p>";
         List<Owner> lista;
         lista = Owner.where("");
         Owner a;
@@ -40,7 +40,7 @@ public class ListarTablas {
     }
     
     public static String listarInmuebles () {
-        String inm = "La tabla esta vacia";
+        String inm = "<p>La tabla esta vacia</p>";
         List<Building> lista;
         lista = Building.where("");
         Building a;
@@ -77,7 +77,7 @@ public class ListarTablas {
     }
     
     public static String listarInmobiliaria () {
-        String inm = "La tabla esta vacia";
+        String inm = "<p>La tabla esta vacia</p>";
         List<Estate> lista;
         lista = Estate.where("");
         Estate a;
